@@ -41,12 +41,11 @@ public class Traversals {
     }
 
     int count = 0;
-    while ((node.left == null && node.right != null) 
-          || 
-          (node.right == null && node.left != null)) {
-          count++;
+
+    if (node.right != null || node.left != null) {
+        count++;
     }
-    return count;
+    return count + countInternalNodes(node.left) + countInternalNodes(node.right);
   }
 
   /**
